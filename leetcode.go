@@ -5,9 +5,9 @@ import (
 	"slices"
 )
 
-// func maxProfit1(prices []int) int {
+func maxProfit1(prices []int) int {
 
-// }
+}
 
 func rotate(nums []int, k int) {
 	size := len(nums)
