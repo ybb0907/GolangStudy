@@ -58,7 +58,6 @@ func main() {
 				break
 			}
 			log.Printf("收到来自 %s 的消息: %s", conn.RemoteAddr(), string(message))
-
 			// 将消息广播给所有客户端
 			sendMessageToAll(conn, string(message))
 		}
