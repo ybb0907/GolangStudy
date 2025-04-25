@@ -8,6 +8,17 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+func readMessage(conn *websocket.Conn) {
+	for {
+		_, message, err := conn.ReadMessage()
+		if err != nil {
+			log.Println("读取消息失败:", err)
+			return
+		}
+		log.Printf(string(message))
+	}
+}
+
 func main() {
 	conn, _, err := websocket.DefaultDialer.Dial("ws://localhost:8080/ws", nil)
 
@@ -29,6 +40,8 @@ func main() {
 			}
 		}
 	}()
+
+	readMessage(conn)
 
 	// 保持主程序运行
 	for {
